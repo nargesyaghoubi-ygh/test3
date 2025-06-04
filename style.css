@@ -6,6 +6,13 @@ body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     height: 100vh;
 }
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
 :root {
   --white: #fff;
   --grey: #ccc;
@@ -117,150 +124,85 @@ body{
   }
 }
 
-.box-container{
-    top: 100px;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: left;
-    align-items: left;
-    flex-direction: column;
-    padding: 20px;
-    box-sizing: border-box;
-    gap: 2rem;
-    flex-wrap: wrap;
-    }
-    /* .box-container {
-      width: 100%;
-      top: 100px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center; 
-      align-items: center;      
-      text-align: center;
-      
-      box-sizing: border-box;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-     */
-.rotating-text span{
-    margin-bottom: 20px;
-   
-    font-size: 5vh; 
-    font-weight: 700; 
-    font-family: 'Playfair Display', serif; 
-    color: #9457c7;
-    letter-spacing: 1px; /*Spacing between letters*/
-    text-align: center;
-}
-.box-container p{
-  width: 100%;
-  margin-bottom: 20px;
-  font-size: 36px; 
-  font-weight: 700; 
-  font-family: 'Playfair Display', serif; 
-  color: white;
-  letter-spacing: 1px; /*Spacing between letters*/
-  text-align: left;
-}
-
-
-.image img {
-  width: 50vw;
-  max-width: 200px;
-  height: auto;
-  border-radius: 50%;
-}
-
-@media (max-width: 768px) {
-  .image img {
-    width: 150px;
-  }
-}
-html, body {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow-x: hidden;
-}
 .home {
-  /* width: 100%; */
-  display: flex;
-  justify-content: left;
-  align-items: left;
-  min-height: 100vh;
-  padding: 2rem;
-  background-color: rgb(8, 8, 8);
-  margin-right: 30px;
-}
-
-
-.rotating-text {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
   display: flex;
   align-items: center;
-  height: 40px;
-  overflow: hidden;
-  white-space: nowrap;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
+/* باکس محتوا */
+.box-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* متن اولیه */
+.box-container p {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+/* متن چرخشی */
+.rotating-text {
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  font-weight: 600;
+  color: white;
 }
 
 .rotating-text .prefix {
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
+/* نوشته‌های در حال تغییر */
 .changing-text {
   display: inline-block;
+  height: 35px;
+  overflow: hidden;
   position: relative;
-  text-shadow:  1px 1px 2px black,
-  0 0 1em blue,
-  0 0 0.2em blue;
-  width: 80vw;
-  max-width: 350px;
- /* Fixed width to prevent jumping */
-  height: 100%;
 }
 
 .changing-text span {
-  width: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
-  animation: fadeInOut 6s linear infinite;
-  width: 100%;
+  display: block;
+  animation: rotateText 6s linear infinite;
 }
 
-.changing-text span:nth-child(1) {
-  animation-delay: 0s;
-}
-.changing-text span:nth-child(2) {
-  animation-delay: 2s;
-}
-.changing-text span:nth-child(3) {
-  animation-delay: 4s;
+@keyframes rotateText {
+  0% { transform: translateY(0); }
+  33% { transform: translateY(-35px); }
+  66% { transform: translateY(-70px); }
+  100% { transform: translateY(0); }
 }
 
-@keyframes fadeInOut {
-  /* Start fully transparent */
-  0% { opacity: 0; }
-
-  /* Fade in to fully visible */
-  10% { opacity: 1; }
-
-  /* Stay fully visible */
-  30% { opacity: 1; }
-
-  /* Fade out to fully transparent */
-  40% { opacity: 0; }
-
-  /* Remain transparent till the end */
-  100% { opacity: 0; }
+/* تصویر پروفایل */
+.image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* ریسپانسیو */
+@media (max-width: 600px) {
+  .rotating-text {
+    font-size: 22px;
+  }
+  .box-container p {
+    font-size: 20px;
+  }
+  .image img {
+    width: 120px;
+    height: 120px;
+  }
+}
   .about {
     color: white;
     max-width: 100%;
