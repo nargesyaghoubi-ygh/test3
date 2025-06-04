@@ -133,7 +133,7 @@ html, body {
   text-align: center;
 }
 
-/* باکس محتوا */
+
 .box-container {
   display: flex;
   flex-direction: column;
@@ -141,27 +141,30 @@ html, body {
   gap: 20px;
 }
 
-/* متن اولیه */
+
 .box-container p {
-  font-size: 24px;
+  font-size: 2rem;
   font-weight: bold;
   color: white;
+  font-family: Arial, sans-serif;
 }
 
-/* متن چرخشی */
+
 .rotating-text {
   display: flex;
   align-items: center;
-  font-size: 28px;
+  font-size: 2rem;
   font-weight: 600;
   color: white;
+  font-family: Arial, sans-serif;
+  color: #9b59b6;
 }
 
 .rotating-text .prefix {
   margin-right: 10px;
 }
 
-/* نوشته‌های در حال تغییر */
+
 .changing-text {
   display: inline-block;
   height: 35px;
@@ -181,7 +184,6 @@ html, body {
   100% { transform: translateY(0); }
 }
 
-/* تصویر پروفایل */
 .image img {
   width: 150px;
   height: 150px;
@@ -190,7 +192,7 @@ html, body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* ریسپانسیو */
+
 @media (max-width: 600px) {
   .rotating-text {
     font-size: 22px;
@@ -361,7 +363,7 @@ html, body {
   min-height: auto;
   width: 100%;
   margin: 30px;
-  margin-left: 40px;
+  margin-left: 50px;
   margin-right: 40px;
   gap: 10px;
 
